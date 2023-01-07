@@ -32,6 +32,8 @@ public class RandomPermutation {
     ArrayList<Horse> ret = new ArrayList<Horse>();
 
     for (int i : r) {
+      // just use the randomized number permutation
+      // as indexes for the randomized horse ArrayList
       ret.add(horses.get(i - 1));
     }
 

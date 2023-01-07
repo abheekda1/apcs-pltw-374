@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         HorseBarn barn = new HorseBarn();
 
-        ArrayList<Horse> changed = new ArrayList<Horse>();
+        /*ArrayList<Horse> changed = new ArrayList<Horse>();
 
         for (Horse horse : barn.getSpaces()) {
             if (horse != null) {
@@ -21,16 +21,20 @@ public class Main {
                     changed.add(horse);
                 }
             }
-        }
+        }*/
 
         // barn.setSpaces(changed);
 
+        // generate a list of the horses in randomized order
         ArrayList<Horse> randomizedHorses = RandomPermutation.next(barn.getSpaces());
 
+        // if it's odd add a placeholder horse named "alone" at the end
         if ((randomizedHorses.size() & 1) != 0)
             randomizedHorses.add(new Horse("alone", 0));
 
+        // print out each of the randomized horse pairs
         for (int i = 0; i < randomizedHorses.size(); i += 2) {
+            // if the horse is named "alone" instead of printing "and" print "is"
             System.out.printf(randomizedHorses.get(i + 1).getName() == "alone" ? "%s is %s\n" : "%s and %s\n",
                     randomizedHorses.get(i).getName(), randomizedHorses.get(i + 1).getName());
         }
